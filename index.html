@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ChUMMY says: it is here</title>
+<!-- The target of the QR code printed on ChUMMY's Part 1 label (the remote),
+     served by GitHub Pages so a phone on mobile data reaches it without the
+     venue wifi. One photo of where the next object is, taken in the room on
+     the day and published by "Publish clue photo.bat" beside this file.
+
+     ChUMMY's own colours (GG4G-Overlay DESIGN.md): #24100a ground, #f9dabf
+     cream, #f8733a body. The photo's address carries a version the publish
+     tool sets (PHOTO below), so a phone never shows a cached older picture.
+     Before the day there is no photo, and the page says so in words. -->
+<style>
+  html, body {
+    margin: 0;
+    background: #24100a;
+    color: #f9dabf;
+    font: 18px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  h1 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    color: #f8733a;
+  }
+  figure { margin: 0; width: 100%; max-width: 720px; }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid #f8733a;
+  }
+  p { margin: 0; text-align: center; }
+  #missing { display: none; }
+  #missing.on { display: block; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ChUMMY says</h1>
+  <figure>
+    <!-- PHOTO --><img id="photo" src="photo.jpg?v=0" alt="Where the next thing is"
+         onerror="this.style.display='none';document.getElementById('missing').classList.add('on')"><!-- /PHOTO -->
+  </figure>
+  <p>It is there. Go and look, chums.</p>
+  <p id="missing">The picture is not here yet. Ask the desk where it went.</p>
+</main>
+</body>
+</html>
