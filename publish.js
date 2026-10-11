@@ -17,6 +17,8 @@ const { execFileSync } = require('child_process');
 const HERE = __dirname;
 const SITE = 'https://gg4g-labs.github.io/GG4G-Clue/';
 const BIG_MB = 8;
+const AUTHOR_NAME = 'GG4G Labs';
+const AUTHOR_EMAIL = '230208165+retrog-dev@users.noreply.github.com';
 
 function fail(msg) {
   console.error('\n  ' + msg + '\n');
@@ -50,7 +52,11 @@ fs.writeFileSync(indexPath, next);
 
 try {
   git('add', '-A', '.');
-  git('commit', '-q', '-m', `Clue photo ${new Date(stamp).toISOString().slice(0, 16).replace('T', ' ')}`);
+  // This repo is public, so its history must never carry a personal email,
+  // whatever this PC's git identity is. Every commit goes out as GG4G Labs on
+  // its GitHub no-reply address.
+  git('-c', `user.name=${AUTHOR_NAME}`, '-c', `user.email=${AUTHOR_EMAIL}`,
+    'commit', '-q', '-m', `Clue photo ${new Date(stamp).toISOString().slice(0, 16).replace('T', ' ')}`);
   git('push', '--quiet');
 } catch (e) {
   fail('Could not send the photo to GitHub.\n  ' + (e.stderr || e.message));
